@@ -13,25 +13,23 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.av.avmessenger.Class.UserAdapter;
+
+import com.av.avmessenger.Class.User;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
 
-    FirebaseAuth auth;
+
     RecyclerView mainUserRecyclerView;
-    UserAdpter  adapter;
-    FirebaseDatabase database;
-    ArrayList<Users> usersArrayList;
-    ImageView imglogout;
+    UserAdapter  adapter;
+    ArrayList<User> usersArrayList;
+    ImageView imglogout,touser,toavance;
     ImageView cumbut,setbut;
+    String ip="http://192.168.1.114:8080";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,38 +37,33 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        int userId = getIntent().getIntExtra("idUser", -1);
 
-        database=FirebaseDatabase.getInstance();
-        auth = FirebaseAuth.getInstance();
         cumbut = findViewById(R.id.camBut);
         setbut = findViewById(R.id.settingBut);
-
-        DatabaseReference reference = database.getReference().child("user");
-
+        touser= (ImageView)findViewById(R.id.touser);
+        toavance=findViewById(R.id.toavance);
         usersArrayList = new ArrayList<>();
 
-        mainUserRecyclerView = findViewById(R.id.mainUserRecyclerView);
-        mainUserRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new UserAdpter(MainActivity.this,usersArrayList);
-        mainUserRecyclerView.setAdapter(adapter);
-
-
-        reference.addValueEventListener(new ValueEventListener() {
+        toavance.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-               for (DataSnapshot dataSnapshot: snapshot.getChildren())
-               {
-                   Users users = dataSnapshot.getValue(Users.class);
-                   usersArrayList.add(users);
-               }
-               adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, List_avance.class);
+                intent.putExtra("id_user",userId);
+                startActivity(intent);
             }
         });
+
+        touser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, listUser.class);
+                intent.putExtra("userId",userId);
+                startActivity(intent);
+            }
+        });
+
+
         imglogout = findViewById(R.id.logoutimg);
 
         imglogout.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +77,7 @@ public class MainActivity extends AppCompatActivity{
                 yes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        FirebaseAuth.getInstance().signOut();
+
                         Intent intent = new Intent(MainActivity.this,login.class);
                         startActivity(intent);
                         finish();
@@ -111,15 +104,14 @@ public class MainActivity extends AppCompatActivity{
         cumbut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent,10);
+
+                Intent intent = new Intent(MainActivity.this, listGrp.class);
+                intent.putExtra("id_user",userId);
+                startActivity(intent);
             }
         });
 
-        if (auth.getCurrentUser() == null){
-            Intent intent = new Intent(MainActivity.this,login.class);
-            startActivity(intent);
-        }
+
 
     }
 }

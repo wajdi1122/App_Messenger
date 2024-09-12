@@ -33,7 +33,6 @@ public class splash extends AppCompatActivity {
         logo = findViewById(R.id.logoimg);
         name = findViewById(R.id.logonameimg);
         own1 = findViewById(R.id.ownone);
-        own2 = findViewById(R.id.owntwo);
 
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
@@ -41,12 +40,11 @@ public class splash extends AppCompatActivity {
         logo.setAnimation(topAnim);
         name.setAnimation(bottomAnim);
         own1.setAnimation(bottomAnim);
-        own2.setAnimation(bottomAnim);
 
       new Handler().postDelayed(new Runnable() {
           @Override
           public void run() {
-              Intent intent = new Intent(splash.this,MainActivity.class);
+              Intent intent = new Intent(splash.this,login.class);
               startActivity(intent);
               finish();
           }

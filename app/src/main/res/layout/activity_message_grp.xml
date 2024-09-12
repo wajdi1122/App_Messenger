@@ -6,21 +6,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/chatback"
     tools:context=".chatwindo">
-
     <LinearLayout
-        android:id="@+id/ll1"
         android:layout_width="match_parent"
-        android:layout_height="151dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll1"
+        android:gravity="center">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileimgg"
-            android:layout_width="75dp"
-            android:layout_height="69dp"
-            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
             android:src="@drawable/male"
             app:civ_border_color="@color/white"
+            android:layout_marginTop="@dimen/_7sdp"
             app:civ_border_width="@dimen/_2sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,12 +31,12 @@
             android:id="@+id/recivername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            android:fontFamily="@font/poppins_regular"
-            android:gravity="center"
             android:text="ayushvishwakarma"
+            android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp" />
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="@dimen/_15sdp"
+            android:layout_margin="@dimen/_10sdp"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -64,6 +63,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="@dimen/_35sdp"
+            android:layout_marginLeft="@dimen/_4sdp"
+            android:layout_marginRight="@dimen/_7sdp"
             android:layout_marginStart="@dimen/_4sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_marginEnd="@dimen/_7sdp"
@@ -72,7 +73,7 @@
             app:cardCornerRadius="@dimen/_25sdp">
 
             <EditText
-                android:id="@+id/textmsg"
+                android:id="@+id/editTextMessage"
                 android:layout_width="338dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="@dimen/_20sdp"
@@ -80,12 +81,13 @@
                 android:background="@null"
                 android:fontFamily="@font/poppins_regular"
                 android:hint="Type The Messages..."
+                android:paddingLeft="13.00dp"
                 android:paddingStart="13.00dp" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/sendbtnn"
+            android:id="@+id/buttonSend"
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
             android:layout_marginRight="@dimen/_5sdp"

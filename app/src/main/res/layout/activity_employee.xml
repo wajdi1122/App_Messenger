@@ -7,19 +7,6 @@
     android:background="@drawable/mainback"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="174dp"
-        android:layout_marginEnd="261dp"
-        android:layout_marginRight="261dp"
-        android:layout_marginBottom="43dp"
-        android:text="Autorisation" />
-
     <LinearLayout
         android:id="@+id/toolBar"
         android:layout_width="352dp"
@@ -62,8 +49,25 @@
 
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainUserRecyclerView"
+        android:layout_width="376dp"
+        android:layout_height="380dp"
+        android:layout_below="@id/toolBar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="104dp" />
+
     <ImageView
-        android:id="@+id/camBut"
+        android:id="@+id/autori"
         android:layout_width="57dp"
         android:layout_height="47dp"
         android:layout_alignParentEnd="true"
@@ -72,10 +76,10 @@
         android:layout_marginEnd="250dp"
         android:layout_marginRight="250dp"
         android:layout_marginBottom="37dp"
-        android:src="@drawable/group" />
+        android:src="@drawable/autoris" />
 
     <ImageView
-        android:id="@+id/touser"
+        android:id="@+id/avance"
         android:layout_width="54dp"
         android:layout_height="45dp"
         android:layout_alignParentEnd="true"
@@ -84,7 +88,7 @@
         android:layout_marginEnd="176dp"
         android:layout_marginRight="176dp"
         android:layout_marginBottom="36dp"
-        android:src="@drawable/chat" />
+        android:src="@drawable/avance" />
 
     <ImageView
         android:id="@+id/settingBut"
@@ -97,68 +101,5 @@
         android:layout_marginRight="104dp"
         android:layout_marginBottom="36dp"
         android:src="@drawable/sett" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="116dp"
-        android:layout_height="92dp"
-        android:layout_below="@+id/toolBar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="244dp"
-        android:layout_marginRight="244dp"
-        app:srcCompat="@drawable/baseline_person_add_24" />
-
-    <ImageButton
-        android:id="@+id/toavance"
-        android:layout_width="116dp"
-        android:layout_height="92dp"
-        android:layout_below="@+id/toolBar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        app:srcCompat="@drawable/baseline_monetization_on_24" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="116dp"
-        android:layout_height="92dp"
-        android:layout_below="@+id/toolBar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="356dp"
-        android:layout_marginEnd="245dp"
-        android:layout_marginRight="245dp"
-        app:srcCompat="@drawable/baseline_weekend_24" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="-1dp"
-        android:layout_marginEnd="248dp"
-        android:layout_marginRight="248dp"
-        android:layout_marginBottom="43dp"
-        android:text="Ajouter Employee" />
-
-    <TextView
-        android:id="@+id/textView112"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageButton"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="98dp"
-        android:layout_marginRight="98dp"
-        android:layout_marginBottom="43dp"
-        android:text="Avance" />
-
 
 </RelativeLayout>
