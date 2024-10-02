@@ -4,6 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="8dp">
+    <ImageView
+        android:id="@+id/imageViewProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:contentDescription="image"
+        android:src="@drawable/male" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -12,38 +20,40 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewRaison"
+            android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:text="Name" />
 
         <TextView
-            android:id="@+id/textViewMontant"
+            android:id="@+id/textViewLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/darker_gray"
+            android:text="Last Name" />
 
         <TextView
-            android:id="@+id/textViewEmail"
+            android:id="@+id/hhh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/black" />
+            android:textColor="@android:color/holo_green_dark"
+            android:text="Actif" />
     </LinearLayout>
-
     <Button
         android:id="@+id/buttonAccepter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/green"
-        android:text="Accepter" />
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="modifier" />
 
     <Button
         android:id="@+id/buttonRefuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/red"
-        android:text="Refuser" />
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="supprimer" />
 </LinearLayout>

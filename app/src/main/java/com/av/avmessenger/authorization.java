@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.av.avmessenger.Class.Config;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +27,7 @@ public class authorization extends AppCompatActivity {
 
     EditText editTextDateDeb, editTextDateFin, raison;
     Calendar calendar;
-    String ip = "http://192.168.1.114:8080";
+    String ip = Config.BASE_URL;
     private RequestQueue requestQueue;
     private Button envoyerButton;
     private int userId;
@@ -111,20 +112,17 @@ public class authorization extends AppCompatActivity {
 
         // Créer la requête POST
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // Gérer la réponse du serveur
-                        try {
-                            String status = response.getString("status");
-                            String message = response.getString("message");
-                            Toast.makeText(authorization.this, message, Toast.LENGTH_SHORT).show();
-                            raison.setText("");
-                            editTextDateDeb.setText("");
-                            editTextDateFin.setText("");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                response -> {
+                    // Gérer la réponse du serveur
+                    try {
+                        String status = response.getString("status");
+                        String message = response.getString("message");
+                        Toast.makeText(authorization.this, message, Toast.LENGTH_SHORT).show();
+                        raison.setText("");
+                        editTextDateDeb.setText("");
+                        editTextDateFin.setText("");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -138,3 +136,4 @@ public class authorization extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 }
+

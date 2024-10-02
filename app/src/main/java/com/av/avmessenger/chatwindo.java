@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.av.avmessenger.Class.Config;
 import com.av.avmessenger.Class.Message;
 import com.av.avmessenger.Class.MessageAdapter;
 import com.android.volley.Request;
@@ -40,7 +41,7 @@ public class chatwindo extends AppCompatActivity {
     private EditText editTextMessage;
     private CardView buttonSend;
     private TextView recivername;
-    String ip="http://192.168.1.114:8080";
+    String ip= Config.BASE_URL;;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

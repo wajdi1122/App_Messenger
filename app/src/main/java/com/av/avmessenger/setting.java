@@ -1,166 +1,3 @@
-//package com.av.avmessenger;
-//
-//import androidx.annotation.NonNull;
-//import androidx.annotation.Nullable;
-//import androidx.appcompat.app.AppCompatActivity;
-//
-//import android.content.Intent;
-//import android.net.Uri;
-//import android.os.Bundle;
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.ImageView;
-//import android.widget.Toast;
-//
-//import com.google.android.gms.tasks.OnCompleteListener;
-//import com.google.android.gms.tasks.OnSuccessListener;
-//import com.google.android.gms.tasks.Task;
-//import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseError;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
-//import com.google.firebase.database.ValueEventListener;
-//import com.google.firebase.storage.FirebaseStorage;
-//import com.google.firebase.storage.StorageReference;
-//import com.google.firebase.storage.UploadTask;
-//import com.squareup.picasso.Picasso;
-//
-//import java.net.URI;
-//import java.net.URL;
-//
-//public class setting extends AppCompatActivity {
-//
-//    ImageView setprofile;
-//    EditText setname, setstatus;
-//    Button donebut;
-//    FirebaseAuth auth;
-//    FirebaseDatabase database;
-//    FirebaseStorage storage;
-//    String email,password;
-//    Uri setImageUri;
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_setting);
-//        auth = FirebaseAuth.getInstance();
-//        database = FirebaseDatabase.getInstance();
-//        storage = FirebaseStorage.getInstance();
-//        setprofile = findViewById(R.id.settingprofile);
-//        setname = findViewById(R.id.settingname);
-//        setstatus = findViewById(R.id.settingstatus);
-//        donebut = findViewById(R.id.donebutt);
-//
-//        DatabaseReference reference = database.getReference().child("user").child(auth.getUid());
-//        StorageReference storageReference = storage.getReference().child("upload").child(auth.getUid());
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                email = snapshot.child("mail").getValue().toString();
-//                password = snapshot.child("password").getValue().toString();
-//                String name = snapshot.child("userName").getValue().toString();
-//                String profile = snapshot.child("profilepic").getValue().toString();
-//                String status = snapshot.child("status").getValue().toString();
-//                setname.setText(name);
-//                setstatus.setText(status);
-//                Picasso.get().load(profile).into(setprofile);
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//
-//        setprofile.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent();
-//                intent.setType("imge/*");
-//                intent.setAction(Intent.ACTION_GET_CONTENT);
-//                startActivityForResult(Intent.createChooser(intent,"Select Picture"), 10);
-//            }
-//        });
-//        donebut.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String name = setname.getText().toString();
-//                String status = setstatus.getText().toString();
-//                if(setImageUri!=null){
-//                    storageReference.putFile(setImageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-//                            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                                @Override
-//                                public void onSuccess(Uri uri) {
-//                                    String finalimageUri = uri.toString();
-//                                    Users users = new Users(auth.getUid(), name,email,password,finalimageUri,status);
-//                                    reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                        @Override
-//                                        public void onComplete(@NonNull Task<Void> task) {
-//                                            if (task.isSuccessful()){
-//                                                Toast.makeText(setting.this, "Data Is Save", Toast.LENGTH_SHORT).show();
-//                                                Intent intent = new Intent(setting.this,MainActivity.class);
-//                                                startActivity(intent);
-//                                                finish();
-//                                            }else {
-//                                                Toast.makeText(setting.this, "Some Thing went...", Toast.LENGTH_SHORT).show();
-//                                            }
-//                                        }
-//                                    });
-//                                }
-//                            });
-//                        }
-//                    });
-//                }else {
-//                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                        @Override
-//                        public void onSuccess(Uri uri) {
-//                            String finaImageUri = uri.toString();
-//                            Users users = new Users(auth.getUid(), name, email,password,finaImageUri,status);
-//                            reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<Void> task) {
-//                                    if(task.isSuccessful()){
-//                                        Toast.makeText(setting.this, "Data Is Save", Toast.LENGTH_SHORT).show();
-//                                        Intent intent = new Intent(setting.this,MainActivity.class);
-//                                        startActivity(intent);
-//                                        finish();
-//                                    }else {
-//                                        Toast.makeText(setting.this, "Some Thing went...", Toast.LENGTH_SHORT).show();
-//                                    }
-//                                }
-//                            });
-//                        }
-//                    });
-//                }
-//            }
-//        });
-//
-//
-//    }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 10){
-//            if (data != null){
-//                setImageUri = data.getData();
-//                setprofile.setImageURI(setImageUri);
-//            }
-//
-//        }
-//
-//
-//    }
-//}
-
-
-
-
-
 package com.av.avmessenger;
 
 import androidx.annotation.NonNull;
@@ -175,20 +12,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.av.avmessenger.Class.Config;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class setting extends AppCompatActivity {
     ImageView setprofile;
-    EditText setname, setstatus;
+    EditText setname, setprenom, setemail;
     Button donebut;
-
-    String email,password;
     ProgressDialog progressDialog;
-
-
-
+    String ip = Config.BASE_URL;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -197,47 +41,91 @@ public class setting extends AppCompatActivity {
 
         setprofile = findViewById(R.id.settingprofile);
         setname = findViewById(R.id.settingname);
-        setstatus = findViewById(R.id.settingstatus);
+        setemail = findViewById(R.id.textViewEmail);
+        setprenom = findViewById(R.id.settingstatus);
         donebut = findViewById(R.id.donebutt);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Saving...");
+        progressDialog.setMessage("Modification en cours...");
         progressDialog.setCancelable(false);
 
-
-
-        setprofile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 10);
-            }
-        });
+        // Récupérer l'ID de l'utilisateur à partir de l'intent
+        int userId = getIntent().getIntExtra("userId", -1);
 
         donebut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressDialog.show();
+                // Vérifiez si l'ID est valide
+                if (userId != -1) {
+                    progressDialog.show();
 
-                String name = setname.getText().toString();
-                String Status = setstatus.getText().toString();
+                    String name = setname.getText().toString();
+                    String email = setemail.getText().toString();
+                    String prenom = setprenom.getText().toString();
 
+                    // Créer un objet JSON avec les nouvelles données
+                    JSONObject jsonBody = new JSONObject();
+                    try {
+                        jsonBody.put("id_user", userId);
+                        jsonBody.put("nom_user", name);
+                        jsonBody.put("prenom_user", prenom);
+                        jsonBody.put("email_user", email);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 
-
+                    // Envoyer les données à l'API
+                    sendUserData(jsonBody);
+                } else {
+                    Toast.makeText(setting.this, "Erreur: ID utilisateur invalide.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
+    private void sendUserData(JSONObject jsonBody) {
+        String url = ip+"/Stage/test/update_user.php"; // Remplacer par l'URL de votre API
+
+        // Créer une requête POST
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        progressDialog.dismiss();
+                        try {
+                            boolean success = response.getBoolean("success");
+                            String message = response.getString("message");
+                            if (success) {
+                                Toast.makeText(setting.this, "Données mises à jour avec succès", Toast.LENGTH_SHORT).show();
+                                // Vous pouvez rediriger l'utilisateur ou mettre à jour l'interface ici
+                            } else {
+                                Toast.makeText(setting.this, "Erreur : " + message, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(setting.this, "Échec de la mise à jour : " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Ajouter la requête à la file d'attente
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 10) {
             if (data != null) {
-
+                Uri setImageUri = data.getData();
+                setprofile.setImageURI(setImageUri);
             }
         }
-
-
     }
 }

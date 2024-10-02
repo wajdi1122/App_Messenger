@@ -1,6 +1,7 @@
 package com.av.avmessenger;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -10,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.animation.Animation;
@@ -33,7 +35,12 @@ public class splash extends AppCompatActivity {
         logo = findViewById(R.id.logoimg);
         name = findViewById(R.id.logonameimg);
         own1 = findViewById(R.id.ownone);
-
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        } else {
+            Log.d("SplashActivity", "ActionBar is null");
+        }
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 

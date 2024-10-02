@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Ajouter un employée"
+            android:textSize="@dimen/_20sdp"
+            android:textAlignment="center"
+            android:textColor="@color/blue"
+            />
+        <!-- Nom User -->
+        <EditText
+            android:id="@+id/nom_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nom "
+            android:inputType="text"
+            android:layout_marginTop="16dp" />
+
+        <!-- Prénom User -->
+        <EditText
+            android:id="@+id/prenom_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Prénom "
+            android:inputType="text"
+            android:layout_marginTop="16dp" />
+
+        <!-- Email User -->
+        <EditText
+            android:id="@+id/email_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email "
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="16dp" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/password_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mot de passe"
+            android:inputType="text"
+            android:layout_marginTop="16dp" />
+
+        <!-- Type de User (RadioGroup) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="Type d'utilisateur :" />
+
+            <RadioGroup
+                android:id="@+id/status_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="16dp">
+
+                <RadioButton
+                    android:id="@+id/admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Admin" />
+
+                <RadioButton
+                    android:id="@+id/employee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Employee" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Téléphone User -->
+        <EditText
+            android:id="@+id/telephone_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Téléphone "
+            android:inputType="phone"
+            android:layout_marginTop="16dp" />
+
+        <!-- Département (Spinner) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Département:"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinner_type_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:spinnerMode="dropdown"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <!-- CIN User -->
+        <EditText
+            android:id="@+id/cin_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CIN "
+            android:inputType="text"
+            android:layout_marginTop="16dp" />
+
+        <!-- Adresse User -->
+        <EditText
+            android:id="@+id/adress_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adresse "
+            android:inputType="textPostalAddress"
+            android:layout_marginTop="16dp" />
+
+        <!-- Bouton d'ajout -->
+        <Button
+            android:id="@+id/btn_add_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:text="Ajouter User"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</ScrollView>

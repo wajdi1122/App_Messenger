@@ -14,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.av.avmessenger.Class.Config;
 import com.av.avmessenger.Class.Group;
 import com.av.avmessenger.Class.GroupAdapter;
 
@@ -29,7 +30,7 @@ public class listGrp extends AppCompatActivity {
     private GroupAdapter adapter;
     private RequestQueue requestQueue;
     private SearchView searchView;
-    String ip="http://192.168.1.114:8080";
+    String ip= Config.BASE_URL;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

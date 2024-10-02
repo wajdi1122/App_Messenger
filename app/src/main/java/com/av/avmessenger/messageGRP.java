@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.av.avmessenger.Class.Config;
 import com.av.avmessenger.Class.MessageGroup;
 import com.av.avmessenger.Class.MessageGroupAdapter;
 
@@ -38,7 +39,7 @@ public class messageGRP extends AppCompatActivity {
     private EditText editTextMessage;
     private CardView buttonSend;
     private String Nom;
-    String ip="http://192.168.1.114:8080";
+    String ip= Config.BASE_URL;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

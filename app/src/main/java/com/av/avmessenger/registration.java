@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
+import com.av.avmessenger.Class.Config;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -27,7 +29,7 @@ public class registration extends AppCompatActivity {
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     ProgressDialog progressDialog;
-    String ip="http://192.168.1.114:8080";
+    String ip= Config.BASE_URL;;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

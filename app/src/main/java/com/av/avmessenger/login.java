@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.av.avmessenger.Class.ApiService;
+import com.av.avmessenger.Class.Config;
 import com.av.avmessenger.Class.LoginRequest;
 import com.av.avmessenger.Class.LoginResponse;
 import com.av.avmessenger.Class.RetrofitClient;
@@ -26,7 +27,7 @@ public class login extends AppCompatActivity {
     private EditText passwordEditText;
     private Button loginButton;
     private ApiService apiService;
-    String ip="http://192.168.1.114:8080";
+    String ip= Config.BASE_URL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

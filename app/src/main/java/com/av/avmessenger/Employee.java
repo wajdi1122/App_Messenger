@@ -12,9 +12,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.av.avmessenger.Class.Config;
+
 public class Employee extends AppCompatActivity {
-    private ImageView autoris,avance;
-    String ip="http://192.168.1.114:8080";
+    private ImageView autoris,avance,setting;
+    String ip= Config.BASE_URL;
     int userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class Employee extends AppCompatActivity {
         setContentView(R.layout.activity_employee);
         autoris= findViewById(R.id.autori);
         avance= findViewById(R.id.avance);
+        setting=findViewById(R.id.settingBut);
         int userId = getIntent().getIntExtra("idUser", -1);
 
         autoris.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +41,14 @@ public class Employee extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Employee.this, Avance.class);
+                intent.putExtra("userId",userId);
+                startActivity(intent);
+            }
+        });
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Employee.this, setting.class);
                 intent.putExtra("userId",userId);
                 startActivity(intent);
             }

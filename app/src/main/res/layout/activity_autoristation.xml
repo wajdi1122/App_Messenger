@@ -39,16 +39,16 @@
 
     <EditText
         android:id="@+id/editText_raison"
-        android:layout_width="315dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="304dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="88dp"
         android:hint="Entrez la raison"
         android:inputType="text"
         android:textColor="@color/black"
         android:textSize="@dimen/_15sdp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toEndOf="@+id/label_raison"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
@@ -57,8 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="96dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Raison"
         android:textColor="@color/black"
@@ -72,8 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="88dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Date début"
         android:textColor="@color/black"
@@ -84,9 +82,9 @@
 
     <EditText
         android:id="@+id/editText_temps_debut"
-        android:layout_width="278dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="257dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="72dp"
         android:clickable="true"
         android:focusable="false"
         android:hint="Sélectionner une date"
@@ -95,15 +93,15 @@
         android:textSize="@dimen/_15sdp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.619"
         app:layout_constraintStart_toEndOf="@+id/label_temps_debut"
         app:layout_constraintTop_toBottomOf="@+id/editText_raison" />
 
     <EditText
         android:id="@+id/editText_temps_fin"
-        android:layout_width="310dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="296dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="52dp"
         android:clickable="true"
         android:focusable="false"
         android:hint="Sélectionner une date"
@@ -112,7 +110,7 @@
         android:textSize="@dimen/_15sdp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.314"
         app:layout_constraintStart_toEndOf="@+id/label_temps_fin"
         app:layout_constraintTop_toBottomOf="@+id/editText_temps_debut" />
 
@@ -121,8 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Date fin"
         android:textColor="@color/black"

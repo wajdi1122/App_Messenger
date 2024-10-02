@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.av.avmessenger.Class.Config;
 import com.av.avmessenger.Class.UserAdapter;
 
 import com.av.avmessenger.Class.User;
@@ -27,9 +28,9 @@ public class MainActivity extends AppCompatActivity{
     RecyclerView mainUserRecyclerView;
     UserAdapter  adapter;
     ArrayList<User> usersArrayList;
-    ImageView imglogout,touser,toavance;
+    ImageView imglogout,touser,toavance,toauto,toadduser;
     ImageView cumbut,setbut;
-    String ip="http://192.168.1.114:8080";
+    String ip= Config.BASE_URL;;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,12 +44,29 @@ public class MainActivity extends AppCompatActivity{
         setbut = findViewById(R.id.settingBut);
         touser= (ImageView)findViewById(R.id.touser);
         toavance=findViewById(R.id.toavance);
+        toauto=findViewById(R.id.toAuto);
+        toadduser=findViewById(R.id.toadduser);
         usersArrayList = new ArrayList<>();
-
+        toadduser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, add_employee.class);
+                intent.putExtra("id_user",userId);
+                startActivity(intent);
+            }
+        });
         toavance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, List_avance.class);
+                intent.putExtra("id_user",userId);
+                startActivity(intent);
+            }
+        });
+        toauto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, List_autorisation.class);
                 intent.putExtra("id_user",userId);
                 startActivity(intent);
             }
@@ -97,6 +115,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, setting.class);
+                intent.putExtra("userId",userId);
                 startActivity(intent);
             }
         });

@@ -15,12 +15,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.av.avmessenger.Class.Config;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Avance extends AppCompatActivity {
-    String ip = "http://192.168.1.114:8080";
+    String ip = Config.BASE_URL;
     private EditText raison, montant;
     private Button envoyerButton;
     private RequestQueue requestQueue;
